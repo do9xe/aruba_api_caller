@@ -63,3 +63,22 @@ class api_session:
     if self.verbose == True:
       print ("\nVerbose: " + str(data))
     return data
+
+#function to convert an Uptime from the AP-List into seconds
+def convertUptime(status):
+  uptime = 0
+  if status.lower().startswith("down"):
+    return uptime
+  timeArray = status.split(" ")[1].split(":")
+  for element in timeArray:
+    time = int(element[:-1])
+    unit = element[-1:]
+    if unit == "s":
+      uptime += time
+    elif unit == "m":
+      uptime += time*60
+    elif unit == "h":
+      uptime += time*60*60
+    elif unit == "d":
+      uptime += time*60*60*24
+  return uptime
