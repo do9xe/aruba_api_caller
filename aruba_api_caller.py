@@ -26,6 +26,7 @@ class api_session:
         return
       if i == self.retrys:
         print("There was an Error with the login. Please check the credentials.",file=sys.stderr)
+        print("Controller-IP: {}, Username: {}".format(self.api_url,self.username),file=sys.stderr)
         exit()
       time.sleep(self.retry_wait)
 
