@@ -1,0 +1,10 @@
+language: python
+python:
+  - "3.6"
+cache: pip
+install:
+  - pip install -r requirements.txt
+  - sudo apt-get install screen
+  - screen -dmS new_screen exec "python3 testing/aruba-api-emulator.py"
+script:
+  - python testing/api-test.py

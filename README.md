@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/do9xe/aruba_api_caller.svg?branch=master)](https://travis-ci.org/do9xe/aruba_api_caller)
+
 A REST-API interface for ArubaOS 8.x based networks.
 ====================================================
 
