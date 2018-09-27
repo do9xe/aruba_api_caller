@@ -30,9 +30,10 @@ class api_session:
         self.api_token = login_data["_global_result"]["UIDARUBA"]
         return
       if i == self.retrys:
-        print("There was an Error with the login. Please check the credentials.",file=sys.stderr)
-        print("Controller-IP: {}, Username: {}".format(self.api_url,self.username),file=sys.stderr)
-        exit()
+        if self.verbose:
+          print("There was an Error with the login. Please check the credentials.",file=sys.stderr)
+          print("Controller-IP: {}, Username: {}".format(self.api_url,self.username),file=sys.stderr)
+        raise PermissionError("There was an Error with the login. Please check the credentials of the User >{}< at host >{}<".format(self.username,self.api_url))
       time.sleep(self.retry_wait)
 
   def logout(self):
