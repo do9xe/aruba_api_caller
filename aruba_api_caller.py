@@ -60,7 +60,7 @@ class api_session:
   def post(self, api_path, data, config_path="/md"):
     if self.api_token == None:
       login()
-    response = self.session.post("{}{}?UIDARUBA={}&config_path={}".format(self.api_url,api_path,self.api_token,node_path), json=data)
+    response = self.session.post("{}{}?UIDARUBA={}&config_path={}".format(self.api_url,api_path,self.api_token,config_path), json=data)
     data = json.loads(response.text)
     if self.verbose:
       print ("Verbose: {}".format(str(data)))
